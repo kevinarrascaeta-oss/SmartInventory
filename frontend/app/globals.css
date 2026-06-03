@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Retro Macintosh / Neo-brutalistic palette */
+  --background: #f9f9f9;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #1c1917;
+  --primary-foreground: #f9f9f9;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #1c1917;
+  --muted: #f4f4f5;
+  --muted-foreground: #78716c;
+  --accent: #f4f4f5;
+  --accent-foreground: #1c1917;
+  
+  /* Retro gradient colors (from Image 1) */
+  --retro-burgundy: #5c1a1b;
+  --retro-red: #a62c2b;
+  --retro-terracotta: #c4523e;
+  --retro-orange: #d97b4a;
+  --retro-ochre: #d9a85c;
+  
+  --destructive: #a62c2b;
+  --destructive-foreground: #ffffff;
+  --border: #1c1917;
+  --input: #f4f4f5;
+  --ring: #1c1917;
+  
+  /* Chart colors using retro palette */
+  --chart-1: #5c1a1b;
+  --chart-2: #a62c2b;
+  --chart-3: #c4523e;
+  --chart-4: #d97b4a;
+  --chart-5: #d9a85c;
+  
+  --radius: 0.125rem;
+  
+  --sidebar: #f9f9f9;
+  --sidebar-foreground: #1c1917;
+  --sidebar-primary: #1c1917;
+  --sidebar-primary-foreground: #f9f9f9;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #1c1917;
+  --sidebar-border: #1c1917;
+  --sidebar-ring: #1c1917;
+}
+
+.dark {
+  --background: #1c1917;
+  --foreground: #f9f9f9;
+  --card: #292524;
+  --card-foreground: #f9f9f9;
+  --popover: #292524;
+  --popover-foreground: #f9f9f9;
+  --primary: #f9f9f9;
+  --primary-foreground: #1c1917;
+  --secondary: #44403c;
+  --secondary-foreground: #f9f9f9;
+  --muted: #44403c;
+  --muted-foreground: #a8a29e;
+  --accent: #44403c;
+  --accent-foreground: #f9f9f9;
+  --destructive: #c4523e;
+  --destructive-foreground: #ffffff;
+  --border: #44403c;
+  --input: #44403c;
+  --ring: #78716c;
+  --chart-1: #d9a85c;
+  --chart-2: #d97b4a;
+  --chart-3: #c4523e;
+  --chart-4: #a62c2b;
+  --chart-5: #5c1a1b;
+  --sidebar: #1c1917;
+  --sidebar-foreground: #f9f9f9;
+  --sidebar-primary: #f9f9f9;
+  --sidebar-primary-foreground: #1c1917;
+  --sidebar-accent: #44403c;
+  --sidebar-accent-foreground: #f9f9f9;
+  --sidebar-border: #44403c;
+  --sidebar-ring: #78716c;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius));
+  --radius-md: calc(var(--radius) + 2px);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Retro gradient colors */
+  --color-retro-burgundy: var(--retro-burgundy);
+  --color-retro-red: var(--retro-red);
+  --color-retro-terracotta: var(--retro-terracotta);
+  --color-retro-orange: var(--retro-orange);
+  --color-retro-ochre: var(--retro-ochre);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Retro gradient stripe */
+.retro-gradient {
+  background: linear-gradient(
+    to right,
+    var(--retro-burgundy) 0%,
+    var(--retro-burgundy) 20%,
+    var(--retro-red) 20%,
+    var(--retro-red) 40%,
+    var(--retro-terracotta) 40%,
+    var(--retro-terracotta) 60%,
+    var(--retro-orange) 60%,
+    var(--retro-orange) 80%,
+    var(--retro-ochre) 80%,
+    var(--retro-ochre) 100%
+  );
+}
+
+/* API badge styling */
+.api-badge {
+  @apply font-mono text-[10px] tracking-tight bg-muted px-1.5 py-0.5 border border-foreground/20;
+}
