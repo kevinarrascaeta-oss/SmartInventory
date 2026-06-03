@@ -110,7 +110,8 @@ export function ProductManagement() {
     setIsLoading(true)
     const start = Date.now()
     try {
-      const res = await fetch("http://localhost:5218/api/products")
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5218"
+      const res = await fetch(`${apiUrl}/api/products`)
       const duration = Date.now() - start
       const data = await res.json()
       addLog({ method: "GET", endpoint: "/api/products", status: res.status, statusText: res.statusText, duration })
